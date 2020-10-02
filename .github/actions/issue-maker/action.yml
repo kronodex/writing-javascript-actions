@@ -1,0 +1,15 @@
+name: "I have issues"
+
+inputs:
+  joke:
+    description: "this will become the body of the created issue"
+  issue-title:
+    description: "title for issue"
+    default: "a joke for you"
+    required: true
+  repo-token:
+    description: "token with permissions to do repo things"
+
+runs:
+  using: "node12"
+  main: "index.js"
