@@ -14,6 +14,7 @@ let run = async ()=>{
   const newIssue = await octokit.issues.create({
      repo: github.context.repo.repo,
      owner: github.context.repo.owner,
+     title: issueTitle,
      body: jokeBody,
   });
 
