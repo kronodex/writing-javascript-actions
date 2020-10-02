@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-async run()=>{
+async run ()=>{
 
  try{
 
